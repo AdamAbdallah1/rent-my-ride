@@ -31,7 +31,7 @@ class Car(Vehicle):
         
     # displayInfo() to include seating capacity
     def displayInfo(self):
-        print(f"Car: {self.brand} {self.model}, Year: {self.year}, Seats: {self.seating_capacity}, Rental Price: ${self.rental_price_per_day}/day")
+        print(f"    Car: {self.brand} {self.model}, Year: {self.year}, Seats: {self.seating_capacity}, Rental Price: ${self.rental_price_per_day}/day")
 
 # Object Bike inherited from vehicle
 class Bike(Vehicle):
@@ -42,15 +42,15 @@ class Bike(Vehicle):
         
     # displayInfo() to include engine capacity
     def displayInfo(self):
-        print(f"Bike: {self.brand} {self.model}, Year: {self.year}, Engine: {self.engine_capacity}cc, Rental Price: ${self.rental_price_per_day}/day")
+        print(f"    Bike: {self.brand} {self.model}, Year: {self.year}, Engine: {self.engine_capacity}cc, Rental Price: ${self.rental_price_per_day}/day")
          
 # Function to demonstarte polymorphism       
 def show_vehicle_info(vehicle):
     vehicle.displayInfo()              
 
 # Creating instances with sample data
-#toyota_car = Car("Toyota", "Corolla", 2024, 50, 5)
-#yamaha_bike = Bike("Yamaha", "R1", 2019, 30, 998)
+carsList = [Car(brand="Toyota", model="Corolla", year=2024, rental_price_per_day=50, seating_capacity=5)]
+bikesList = [Bike(brand="BMW", model="R1", year=2019, rental_price_per_day=30, engine_capacity=998)]
 
 # Display vehicle details using polymorphism
 #toyota_car.displayInfo()
@@ -69,11 +69,6 @@ def show_vehicle_info(vehicle):
 # Display updated rental price
 #print(f"\nUpdated rental price for {toyota_car.brand} {toyota_car.model}: ${toyota_car.get_rental_price_per_day()}/day")
 
-# Vehicles list
-carsList = [Car(brand="Toyota", model="Corolla", year=2024, rental_price_per_day=50, seating_capacity=5)]
-bikesList = [Bike(brand="BMW", model="R1", year=2019, rental_price_per_day=30, engine_capacity=998)]
-
-# Creating the menu promp
 def prompt():
     print("=======================================================")
     print("""
@@ -108,43 +103,61 @@ def createCar():
             Car: {car.brand} {car.model}
             year: {car.year}
             Seating Capacity: {car.seating_capacity}
-            Rental Price Per Day: ${car.rental_price_per_day}/d.
+            Rental Price Per Day: {car.rental_price_per_day}
               """)
+        carsList.append(car)
         return car
-    
+        
     elif choice == 2:
         brand = input("Brand: ")
         model = input("Model: ")
-        engine_capaxity = ("Engine Capacity: ")
+        year = input("Year: ")
+        engine_capacity = input("Engine Capacity: ")
         rental_price_per_day = input("Rental Price/d: ")
-        bike = Bike(brand=brand, model=model, engine_capacity=engine_capaxity, rental_price_per_day=rental_price_per_day)
+        bike = Bike(brand=brand, model=model, year=year,engine_capacity=engine_capacity, rental_price_per_day=rental_price_per_day)
         print(f"""
         Bike Added Successfully:
-            Bike: {car.brand} {car.model}
-            year: {car.year}
-            Engine Capacity: {car.seating_capacity}
-            Rental Price : ${car.rental_price_per_day}/d
+            Bike: {bike.brand} {bike.model}
+            year: {bike.year}
+            Engine Capacity: {bike.engine_capacity}
+            Rental Price Per Day: {bike.rental_price_per_day}
               """)
+        bikesList.append(bike)
         return bike
+
     else:
         print("Unvalid Choice!")
         
-def viewcars():
-    pass
+def viewVehicles():
+    print("Existing Vehicles are:")
+    # Loop through the car and bike lists and display their info
+    if carsList:
+        print("\n   Cars:")
+        for car in carsList:
+            car.displayInfo()
 
-def selectCar():
-    pass
+    if bikesList:
+        print("\n   Bikes:")
+        for bike in bikesList:
+            bike.displayInfo()
 
+    if not carsList and not bikesList:
+        print("No vehicles available.")
+
+def selectVehicle():
+    pass
+        
 action = 0
 while action != 4:
     action = prompt()
     if action == 1:
         createCar()
     elif action == 2:
-        viewcars()
+        viewVehicles()
     elif action == 3:
-        selectCar()
+        selectVehicle()
     elif action == 4:
         print("Goodbye")
         break    
         
+    
