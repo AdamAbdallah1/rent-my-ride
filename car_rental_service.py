@@ -89,3 +89,43 @@ def prompt():
     print("=======================================================")
     return action
 
+def createCar():
+    choice = int(input("""
+            Choose vehicle:
+                1 ==> Car
+                2 ==> Bike
+                0 ==> Go back to menu
+                >_: """))
+    if choice == 1:
+        brand = input("Brand: ")
+        model = input("Model: ")
+        year = input("Year: ")
+        seats = input("Seats Capacity: ")
+        rental_price_per_day = input("Rental Price/d: ")
+        car = Car(brand=brand, model=model, year=year, seating_capacity=seats, rental_price_per_day=rental_price_per_day)
+        print(f"""
+        Car Added Successfully:
+            Car: {car.brand} {car.model}
+            year: {car.year}
+            Seating Capacity: {car.seating_capacity}
+            Rental Price Per Day: {car.rental_price_per_day}
+              """)
+        return car
+    
+    elif choice == 2:
+        brand = input("Brand: ")
+        model = input("Model: ")
+        engine_capaxity = ("Engine Capacity: ")
+        rental_price_per_day = input("Rental Price/d: ")
+        bike = Bike(brand=brand, model=model, engine_capacity=engine_capaxity, rental_price_per_day=rental_price_per_day)
+        print(f"""
+        Bike Added Successfully:
+            Bike: {car.brand} {car.model}
+            year: {car.year}
+            Engine Capacity: {car.seating_capacity}
+            Rental Price Per Day: {car.rental_price_per_day}
+              """)
+        return bike
+    else:
+        print("Unvalid Choice!")
+        
