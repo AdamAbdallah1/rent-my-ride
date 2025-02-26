@@ -28,7 +28,13 @@ class Vehicel:
     def dislayInfo(self):
         print(f"""  Car: {self.brand}, Year: {self.year}, Seats: {self.seats}, Rental Price: {self.rental_price_per_day}\day""")
 
-   
+class Car(Vehicel):
+    def __init__(self, brand, model, year, seats, rental_price_per_day, rental_days):
+        super().__init__(brand, model, year, seats, rental_price_per_day, rental_days) #using super() to return a temp object allowing to access the methods
+        self.seating_capacity = seats
+        
+
+                
 toyota = Vehicel("Toyota", "Corolla", 2024, 5, 30, 3)
 toyota.dislayInfo()
 
