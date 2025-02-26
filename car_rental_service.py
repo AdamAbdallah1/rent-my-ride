@@ -24,3 +24,6 @@ class VehicelService:
 toyota = VehicelService("Toyota", "Corolla", 2024, 5, 30)
 toyota.dislayInfo()
 
+mercedes = VehicelService("Mercedes-Benz", "C-Class", 2024, 5, 50)
+mercedes.dislayInfo()
+
