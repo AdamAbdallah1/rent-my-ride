@@ -145,8 +145,37 @@ def viewVehicles():
         print("No vehicles available.")
 
 def selectVehicle():
-    pass
+    model = input("Enter the model of the vehicle you want to rent: ")
+    
+    # Search for the vehicle in carsList
+    vehicle_to_rent = None
+    for vehicle in carsList:
+        if vehicle.model.lower() == model.lower():
+            vehicle_to_rent = vehicle
+            break
+    
+    # Search for the vehicle in bikesList if not found in carsList
+    if vehicle_to_rent is None:
+        for vehicle in bikesList:
+            if vehicle.model.lower() == model.lower():
+                vehicle_to_rent = vehicle
+                break
+    
+    # If vehicle is found, prompt for rental days
+    if vehicle_to_rent:
+        print(f"\nSelected Vehicle: {vehicle_to_rent.brand} {vehicle_to_rent.model}")
+        vehicle_to_rent.displayInfo()
         
+        rental_days = int(input(f"Enter the number of days you want to rent {vehicle_to_rent.model}: "))
+        
+        if rental_days > 0:
+            rental_cost = vehicle_to_rent.calculateRentalCost(rental_days)
+            print(f"\nTotal rental cost for {vehicle_to_rent.model} for {rental_days} days: ${rental_cost}")
+        else:
+            print("The number of days must be greater than 0!")
+    else:
+        print("Vehicle not found. Please check the model and try again.")
+
 action = 0
 while action != 4:
     action = prompt()
@@ -159,5 +188,3 @@ while action != 4:
     elif action == 4:
         print("Goodbye")
         break    
-        
-    
