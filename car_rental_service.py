@@ -33,6 +33,8 @@ class Car(Vehicel):
         super().__init__(brand, model, year, seats, rental_price_per_day, rental_days) #using super() to return a temp object allowing to access the methods
         self.seating_capacity = seats
         
+    def displayInfo(self):
+        print(f"""  Car: {self.brand}, Year: {self.year}, Seats: {self.seating_capacity}, Rental Price: ${self.rental_price_per_day}/day""")
 
                 
 toyota = Vehicel("Toyota", "Corolla", 2024, 5, 30, 3)
