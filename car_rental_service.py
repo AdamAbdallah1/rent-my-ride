@@ -108,7 +108,7 @@ def createCar():
             Car: {car.brand} {car.model}
             year: {car.year}
             Seating Capacity: {car.seating_capacity}
-            Rental Price Per Day: {car.rental_price_per_day}
+            Rental Price Per Day: ${car.rental_price_per_day}/d.
               """)
         return car
     
@@ -123,13 +123,17 @@ def createCar():
             Bike: {car.brand} {car.model}
             year: {car.year}
             Engine Capacity: {car.seating_capacity}
-            Rental Price Per Day: {car.rental_price_per_day}
+            Rental Price : ${car.rental_price_per_day}/d
               """)
         return bike
     else:
         print("Unvalid Choice!")
         
+def viewcars():
+    pass
 
+def selectCar():
+    pass
 
 action = 0
 while action != 4:
@@ -137,9 +141,9 @@ while action != 4:
     if action == 1:
         createCar()
     elif action == 2:
-        pass
+        viewcars()
     elif action == 3:
-        pass
+        selectCar()
     elif action == 4:
         print("Goodbye")
         break    
