@@ -1,4 +1,4 @@
-class VehicelService:
+class Vehicel:
     brand = ''
     model = 0
     year = 0
@@ -12,19 +12,28 @@ class VehicelService:
         self.year = year
         self.seats = seats
         self.rental_price_per_day = rental_price_per_day
-        self.rental_days = rental_days
     
-    def calculateRentalCost(self):
-        self.rental_price_per_day = (self.rental_price_per_day * self.rental_days)
+    def calculateRentalCost(self, days):
+        return self.rental_price_per_day * days
+    
+    def get_rental_price_per_day(self):
+        return self.rental_price_per_day
+    
+    def set_rental_price_per_day(self, new_price):
+        if new_price > 0:
+            self.rental_price_per_day = new_price
+        else:
+            print("Rental Price must be greater than 0!")
         
     def dislayInfo(self):
         print(f"""  Car: {self.brand}, Year: {self.year}, Seats: {self.seats}, Rental Price: {self.rental_price_per_day}\day""")
 
-toyota = VehicelService("Toyota", "Corolla", 2024, 5, 30, 3)
+   
+toyota = Vehicel("Toyota", "Corolla", 2024, 5, 30, 3)
 toyota.dislayInfo()
 
-mercedes = VehicelService("Mercedes-Benz", "C-Class", 2024, 5, 50, 3)
+mercedes = Vehicel("Mercedes-Benz", "C-Class", 2024, 5, 50, 3)
 mercedes.dislayInfo()
 
-bmw = VehicelService("BMW", "3 Series", 2024, 5, 50, 3)
-bmw.dislayInfo()
+bmwbike = Vehicel("BMW", "S 100 RR", 2024, 5, 50, 3)
+bmwbike.dislayInfo()
