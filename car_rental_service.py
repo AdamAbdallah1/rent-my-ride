@@ -1,4 +1,4 @@
-class rentalService:
+class VehicelService:
     brand = ''
     model = 0
     year = 0
@@ -16,6 +16,8 @@ class rentalService:
         self.rental_days = rental_days
         rental_days = float(input("Enter rental days: "))
         self.rental_price_per_day = rental_price_per_day
-        rental_price_per_day = (rental_days * )
-        
-         
+        rental_price_per_day = (rental_days * rental_price_per_day)
+        print(f"""
+        Car: {self.brand}, Year: {self.year}, Seats: {self.seats}, Rental Price: {rental_days}\day
+              """)
+
