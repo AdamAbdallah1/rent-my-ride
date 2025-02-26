@@ -21,3 +21,6 @@ class VehicelService:
         Car: {self.brand}, Year: {self.year}, Seats: {self.seats}, Rental Price: {rental_days}\day
               """)
 
+toyota = VehicelService("Toyota", "Corolla", 2024, 5, 30)
+toyota.dislayInfo()
+
