@@ -129,3 +129,18 @@ def createCar():
     else:
         print("Unvalid Choice!")
         
+
+
+action = 0
+while action != 4:
+    action = prompt()
+    if action == 1:
+        createCar()
+    elif action == 2:
+        pass
+    elif action == 3:
+        pass
+    elif action == 4:
+        print("Goodbye")
+        break    
+        
